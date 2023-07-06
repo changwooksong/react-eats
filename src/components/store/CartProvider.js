@@ -80,11 +80,16 @@ const CartProvider = (props) => {
         dispatchCartReducer({ type: 'REMOVE', id: id });
     };
 
+    const clearCartHandler = () => {
+        dispatchCartReducer({ type: 'CLEAR' });
+    };
+
     const cartContext = {
         items: cartState.items,
         totalAmount: cartState.totalAmount,
         addItem: addItemHandler,
         removeItem: removeItemHandler,
+        clearCart: clearCartHandler,
     };
 
     return (
